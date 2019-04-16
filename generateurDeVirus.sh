@@ -5,12 +5,8 @@ function install() {
   curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
   chmod 755 msfinstall
   sudo ./msfinstall
-
 }
-#code
-
-if (whiptail --title "condition d'utulisation" --yesno "Cette applicationest à bute éducatif et n'a pas été consu pour un bute malsain, donc n'est pas résponcable de votre utulisation." 15 60 3>&1 1>&2 2>&3); then
-
+function code() {
   whiptail --msgbox "Vous devez avoir metasploit sur votre machine pour que l'application fonctionne comvnablemants" 15 60 4 3>&1 1>&1 2>&1
   interface=$(whiptail --title "Menu Box" --menu "installation" 15 60 4 \
   "1" "installé metasploit" \
@@ -45,4 +41,8 @@ if (whiptail --title "condition d'utulisation" --yesno "Cette applicationest à 
       fi
     fi
   fi
+}
+
+if (whiptail --title "condition d'utulisation" --yesno "Cette applicationest à bute éducatif et n'a pas été consu pour un bute malsain, donc n'est pas résponcable de votre utulisation." 15 60 3>&1 1>&2 2>&3); then
+  code
 fi
